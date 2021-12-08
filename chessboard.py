@@ -19,7 +19,6 @@ CHESSTYEPE_EMPTY = 0
 CHESSTYEPE_WHITE = 1
 CHESSTYEPE_BLACK = 2
 
-
 class ChessBoard(QWidget):
     def __init__(self):
         super().__init__()
@@ -72,7 +71,6 @@ class ChessBoard(QWidget):
                 rect = QRect(x - radius, y - radius, radius * 2, radius * 2)
                 painter.drawEllipse(rect)
 
-
     def mousePressEvent(self, event):
         mouseEvent = QMouseEvent(event)
         point = mouseEvent.localPos()
@@ -97,34 +95,3 @@ class ChessBoard(QWidget):
             self.currentType = CHESSTYEPE_WHITE
 
         self.update()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-class Chesspiece(object):
-    def __init__(self, point : QPointF):
-        super().__init__()
-        self.row = math.ceil((point.x() - GRID_OFFSET) / GRID_ITEM_WIDTH)
-        self.column = math.ceil((point.y() - GRID_OFFSET) / GRID_ITEM_HEIGHT)
-
-    def __str__(self):
-        desc = "row:" + str(self.row) + " column:" + str(self.column)
-        return desc
